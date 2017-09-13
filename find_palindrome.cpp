@@ -32,61 +32,12 @@ Benchmark:
     #define IN(text) fprintf( stdout, "> %s\n", text ); fflush( stdout )
 
 // Globals
-    int gbTrace  =    0;
-    int gnCycles =    0; // Current depth
-    int gnDepth  = 1024; // Maximum depth
     int gnRecord =    0; // Highest depth
 
     BigInt10 *gpBeg = 0;
     BigInt10 *gpEnd = 0;
 
 // Implementation
-
-    /*
-    @return -1 if number is probably a Lychrel Number
-
-    */
-    // ========================================================================
-    BigInt10 findPalindrome( BigInt10 x )
-    {
-        gnCycles = 0;
-
-        BigInt10 r;
-        BigInt10 s( x );
-
-        while( true )
-        {
-//  Test which version is faster
-#if BENCH_IS_PALINDROME == 0
-            if( s.isPalindrome() )
-                break;
-#endif
-#if BENCH_IS_PALINDROME == 1
-            if( s.isPalindromeXOR() )
-                break;
-#endif
-
-            r.reverse( s );
-
-            //printf( "@  %d\n", depth );
-            gnCycles++;
-            if (gnCycles > gnDepth) //if( (s.digits() < 1)
-            {
-                gnCycles = -1;
-                return s;
-            }
-
-            if( gbTrace )
-                printf( "%3d) %s + %s = ", gnCycles, s.toString(), r.toString() );
-
-            s += r;
-
-            if( gbTrace )
-                printf( "%s\n", s.toString() );
-        }
-
-        return s;
-    }
 
 
 // =======================================================================

@@ -19,52 +19,11 @@ Digits: 119
     #define IN(text) fprintf( stdout, "> %s\n", text ); fflush( stdout )
 
 // Globals
-    int gbTrace  =    0;
-    int gnCycles =    0; // Current depth
-    int gnDepth  = 1024; // Maximum depth
+    int gnColumn =   10;
 
 // Utility
 
 // Implementation
-
-    /**
-     *  @return -1 if number is probably a Lychrel Number
-     */
-    // ========================================================================
-    BigInt10 findPalindrome( BigInt10 x )
-    {
-        gnCycles = 0;
-
-        BigInt10 r;
-        BigInt10 s( x );
-
-        while( true )
-        {
-            if( s.isPalindrome() )
-                break;
-
-            r.reverse( s );
-
-            //printf( "@  %d\n", depth );
-            gnCycles++;
-            if (gnCycles > gnDepth) //if( (s.digits() < 1)
-            {
-                gnCycles = -1;
-                return s;
-            }
-
-            if( gbTrace )
-                printf( "%3d) %s + %s = ", gnCycles, s.toString(), r.toString() );
-
-            s += r;
-
-            if( gbTrace )
-                printf( "%s\n", s.toString() );
-        }
-
-        return s;
-    }
-
 
 // ========================================================================
 int main( const int nArg, const char *aArg[] )
