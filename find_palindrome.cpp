@@ -24,7 +24,6 @@ Benchmark:
 */
 
 #define BIGINT_SIZE         256
-#define BENCH_IS_PALINDROME 0
 
 // Include
     #include "inc.h"
