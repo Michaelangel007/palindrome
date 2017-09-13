@@ -165,12 +165,13 @@ int main( const int nArg, const char *aArg[] )
 
         if( gnRecord < gnCycles )
         {
-            printf( "New record: %d digits, %s, %d iterations (%d digits)\n"
-                , x.digits()
-                , x.toString()
-                , gnCycles
-                , r.digits()
-            );
+            printf( "New record: %d digits, ", x.digits() );
+#if BIGINT_TOSTRING
+            printf( "%s", x.toString() );
+#else
+            x.print();
+#endif
+            printf( ", %d iterations (%d digits)\n", gnCycles , r.digits());
             gnRecord = gnCycles;
         }
     }

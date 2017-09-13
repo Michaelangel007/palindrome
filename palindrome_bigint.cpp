@@ -119,7 +119,13 @@ int main( const int nArg, const char *aArg[] )
         for( ; x <= y; x += ONE )
         {
             r = findPalindrome( x );
+
+#if BIGINT_TOSTRING
             printf( "%3s:%4d, ", x.toString(), gnCycles );
+#else
+            x.print();
+            printf( ":%4d, ", gnCycles );
+#endif
 
             if( cols++ && ((cols % 10) == 0) )
                 printf( "\n" );
