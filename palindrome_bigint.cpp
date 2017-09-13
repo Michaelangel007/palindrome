@@ -11,9 +11,8 @@ Cycles: 261
 Digits: 119
 */
 
+
 // Include
-    #include <stdint.h>
-    #include "timestamp.h"
     #include "inc.h"
 
 // Macros
