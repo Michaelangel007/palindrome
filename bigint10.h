@@ -53,8 +53,9 @@ class BigInt10
 
             ___abc
             0123456
-                 ^
-                 tail
+               .  ^_capacity
+               . ^
+               . tail
                ^
                head
     */
