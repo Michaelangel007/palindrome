@@ -86,7 +86,7 @@ int main( const int nArg, const char *aArg[] )
             printf( ":%4d, ", gnCycles );
 #endif
 
-            if( cols++ && ((cols % 10) == 0) )
+            if( cols++ && ((cols % gnColumn) == 0) )
                 printf( "\n" );
         }
 
