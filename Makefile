@@ -6,7 +6,7 @@ clean:
 	@rm -f pal findpal
 
 # -g  Debug Info
-C_FLAGS=-Wall -Wextra -O2 -g
+C_FLAGS=-Wall -Wextra -O2 -g -Wno-missing-field-initializers
 
 INC_H=$(wildcard *.h)
 
