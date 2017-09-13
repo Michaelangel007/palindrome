@@ -7,8 +7,20 @@ https://www.youtube.com/watch?v=bN8PE3eljdA
 
 Benchmark:
 
-    time findpal 89 1,007,601
+    BIGINT_SIZE 256
+    findpal 89 1,007,601
+        Elapsed time: 00:01:05.675 (66 seconds)
+        Throughput: 14 K Num/s (1007513 samples)
 
+    findpal 1000 101,000
+        Elapsed time: 00:00:03.393 (3 seconds)
+        Throughput: 28 K Num/s (100001 samples)
+
+
+    BIGINT_SIZE 128
+    findpal 89 1,007,601
+        Elapsed time: 00:00:40.048 (40 seconds)
+        Throughput: 24 K Num/s (1007513 samples)
 */
 
 #define BIGINT_SIZE         256
@@ -135,12 +147,17 @@ int main( const int nArg, const char *aArg[] )
     gpBeg = &x;
     gpEnd = &y;
 
+    uint64_t delta = 0;
+
     printf( "Starting @ %s\n", x.toString() );
     printf( "Looking for 1st palindrome > %d iterations...\n", gnRecord );
 
     signal( SIGINT, onCtrlC );
 
-    for( ; x <= y; x += ONE )
+    Timer timer;
+    timer.Start();
+
+    for( ; x <= y; x += ONE, delta++ )
     {
         r = findPalindrome( x );
 
@@ -158,6 +175,10 @@ int main( const int nArg, const char *aArg[] )
             gnRecord = gnCycles;
         }
     }
+
+    timer.Stop( true );
+    timer.Throughput( delta );
+    timer.Print( "Num" );
 
     printf( "\n" );
 

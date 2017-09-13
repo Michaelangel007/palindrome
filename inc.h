@@ -7,4 +7,5 @@
 
     #include "compare.h"
     #include "bigint10.h"
+    #include "util_timer.h"
 
