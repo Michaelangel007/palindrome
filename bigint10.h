@@ -34,7 +34,7 @@ class BigInt10
     inline void clone( const char *source )
     {
         alloc();
-        memcpy( _pDigits, source, CAPACITY );   
+        memcpy( _pDigits, source, CAPACITY );
     }
 
     // ========================================================================
@@ -191,7 +191,7 @@ public:
     }
 
 // Benchmarks: time findpal 89 1,007,601
-// 
+//
 // isPalindrome      real 1m8.625s
 // isPalindromeXOR   real 1m16.079s
 
