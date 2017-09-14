@@ -71,7 +71,6 @@ int main( const int nArg, const char *aArg[] )
     if( nArg == 3 )
     {
         BigInt10 ONE( "1" );
-        BigInt10 TWO( "2" );
 
         size_t cols = 0;
 
