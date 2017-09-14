@@ -109,7 +109,11 @@ int main( const int nArg, const char *aArg[] )
 
     for( ; x <= y; x += ONE, delta++ )
     {
+#if FIND == 1 // VER1
         r = findPalindrome( x );
+#else // VER2
+        r = findPalindrome2( x );
+#endif
 
         if( gnCycles < 0 ) // Couldn't verify is a palindrome
             continue;

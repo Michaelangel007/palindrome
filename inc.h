@@ -5,8 +5,9 @@
     #include <stdlib.h> // malloc()
     #include <signal.h> // signal()
 
-// Defiens
+// Defines
     #define BIGINT_TOSTRING 1
+    #define FIND            2
 
 // User Includes
     #include "compare.h"

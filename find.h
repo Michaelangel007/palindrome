@@ -4,7 +4,8 @@
     int gnDepth  = 1024; // Maximum depth
 
 // Implementation
-    /*
+
+    /* Use: reverse() +=()
      * @return -1 if number is probably a Lychrel Number
      */
     // ========================================================================
@@ -53,6 +54,40 @@
                 printf( "\n" );
 #endif
             }
+        }
+
+        return s;
+    }
+
+    /* Use: AddRev()
+     * @return -1 if number is probably a Lychrel Number
+     */
+    // ========================================================================
+    BigInt10 findPalindrome2( BigInt10 x )
+    {
+        BigInt10 s( x );
+
+        gnCycles = 0;
+
+        while( true )
+        {
+           if( s.isPalindrome() )
+               break;
+
+            gnCycles++;
+            if (gnCycles > gnDepth)
+            {
+                gnCycles = -1;
+                break;
+            }
+
+            if( gbTrace )
+                printf( "%3d) %s + ... = ", gnCycles, s.toString() );
+
+            s.AddRev();
+
+            if( gbTrace )
+                printf( "%s\n", s.toString() );
         }
 
         return s;

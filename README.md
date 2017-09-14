@@ -45,6 +45,8 @@ Digits:     13
 
 `findpal 89 1,007,601`
 
+Using: `reverse()`, and `+=()`
+
 ```
 Starting @ 89
 Looking for 1st palindrome > 0 iterations...
@@ -58,7 +60,29 @@ New record: 6 digits, 150296, 64 iterations (33 digits)
 New record: 7 digits, 1000689, 78 iterations (39 digits)
 New record: 7 digits, 1005744, 79 iterations (39 digits)
 New record: 7 digits, 1007601, 80 iterations (38 digits)
+Elapsed time: 00:01:04.223 (64 seconds)
+Throughput: 15 K Num/s (1007513 samples)
 ```
+
+Using `AddRev()`
+
+```
+Starting @ 89
+Looking for 1st palindrome > 0 iterations...
+New record: 2 digits, 89, 24 iterations (13 digits)
+New record: 5 digits, 10548, 30 iterations (17 digits)
+New record: 5 digits, 10677, 53 iterations (28 digits)
+New record: 5 digits, 10833, 54 iterations (28 digits)
+New record: 5 digits, 10911, 55 iterations (28 digits)
+New record: 6 digits, 147996, 58 iterations (31 digits)
+New record: 6 digits, 150296, 64 iterations (33 digits)
+New record: 7 digits, 1000689, 78 iterations (39 digits)
+New record: 7 digits, 1005744, 79 iterations (39 digits)
+New record: 7 digits, 1007601, 80 iterations (38 digits)
+Elapsed time: 00:00:45.940 (46 seconds)
+Throughput: 21 K Num/s (1007513 samples)
+```
+
 
 
 # What's so special about 196?

@@ -52,7 +52,11 @@ int main( const int nArg, const char *aArg[] )
     if( nArg <= 2 )
     {
         gbTrace = 1;
+#if FIND == 1// VER1
         r = findPalindrome( x );
+#else
+        r = findPalindrome2( x );
+#endif
 
         if( gnCycles != -1 )
         {
@@ -76,7 +80,11 @@ int main( const int nArg, const char *aArg[] )
 
         for( ; x <= y; x += ONE )
         {
-            r = findPalindrome( x );
+#if FIND == 1 // VER1
+            findPalindrome( x );
+#else
+            findPalindrome2( x );
+#endif
 
 #if BIGINT_TOSTRING
             printf( "%3s:%4d, ", x.toString(), gnCycles );
