@@ -299,6 +299,60 @@ public:
         return *this;
     }
 
+    // AddReverse: x += reverse(x)
+    void AddRev()
+    {
+        /*
+               6  6              187      198
+              +6  6              781      891
+              =====             ====     ====
+              12,12 Phase 1   8,16,8   9,18,9
+              13, 2 Phase 2   9, 6,8  10, 8,9
+            1 ,3, 6 Phase 3           1,0,8,9
+        */
+        int iHead = CAPACITY - _nDigits;
+        int iTail = CAPACITY - 1;
+        char sum;
+
+        // Phase 1 -- sum all reverse digits, we don't care about overflow (yet)
+        while( iTail >= iHead )
+        {
+            sum = (_pDigits[ iHead ] & 0xF)
+                + (_pDigits[ iTail ] & 0xF)
+                ;
+
+            _pDigits[ iHead ] = sum;
+            _pDigits[ iTail ] = sum;
+            iHead++;
+            iTail--;
+        }
+
+        // Phase 2 & 3 -- Now propogate all carries
+        const char *pHead = head();
+        /* */ char *pTail = tail();
+
+        char   digit;
+        char   carry = 0; // add: carry = 0; ripple carry: c = a + b + c
+
+        while( pTail >= pHead ) // scan in reverse
+        {
+            digit = (*pTail & 0x1F) + carry;
+            carry = digit > 9;
+
+            if( digit > 9 )
+                digit -= 10;
+
+            *pTail-- = (digit | '0'); // DIGIT_ZERO
+        }
+
+        // The number of digits can only every grow by +1
+        if( carry )
+        {
+            _nDigits++;
+            *pTail = carry | '0';
+        }
+    }
+
     inline friend
     int compare( const BigInt10& lhs, const BigInt10& rhs )
     {
