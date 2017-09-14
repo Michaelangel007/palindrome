@@ -1,7 +1,11 @@
 // Globals
-    int gbTrace  =    0;
-    int gnCycles =    0; // Current depth
-    int gnDepth  = 1024; // Maximum depth
+    int gbTrace  =   0;
+    int gnCycles =   0; // Current depth
+#if MAX_DEPTH
+    int gnDepth  = MAX_DEPTH;
+#else
+    int gnDepth  = 333; // Maximum depth
+#endif
 
 // Implementation
 
