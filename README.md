@@ -1124,9 +1124,9 @@ Cycles:     -1
 
 # Palindrome Cycles
 
-Starting at 196, and every 99 numbers after, is more likely to not be a palindrome.
+Starting at 196, and every 99 numbers after, is more likely to a Lychrel number (doesn't converge to a palindrome.)
 
-Note: Bogus values of -1 means iterated to max depth bug no palindrome found
+Note: Bogus values of -1 means iterated to max depth but no palindrome found.
 
 ```
   0:   0,   1:   0,   2:   0,   3:   0,   4:   0,   5:   0,   6:   0,   7:   0,   8:   0,   9:   0, 
