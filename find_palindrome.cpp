@@ -23,7 +23,8 @@ Benchmark:
         Throughput: 24 K Num/s (1007513 samples)
 */
 
-#define BIGINT_SIZE         256
+#define BIGINT_SIZE  256 - 17 // 16 bytes/class + digit capacity + null sentinel
+#define MAX_DEPTH    333
 
 // Include
     #include "inc.h"
