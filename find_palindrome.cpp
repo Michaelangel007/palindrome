@@ -70,6 +70,8 @@ int main( const int nArg, const char *aArg[] )
     const char *text2 = (nArg > 2) ?       aArg[2] : " 99";
     gnRecord          = (nArg > 3) ? atoi( aArg[3] ): gnRecord;
 
+    printf( "sizeof( bigint10 ): %d\n", BigInt10::size() );
+
     if( nArg < 2 )
     {
         printf(

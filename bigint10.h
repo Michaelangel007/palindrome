@@ -244,6 +244,13 @@ public:
         return *this;
     }
 
+    static int size()
+    {
+        static BigInt10 temp;
+
+        return sizeof( temp ) + CAPACITY + 1;
+    }
+
     // Since the number if right-aligned there is nothing to do for printing
     // except return the pointer to the first (far left) character
     // ========================================================================
