@@ -131,7 +131,7 @@ public:
         }
 
         *pDst-- = y + '0';
-        _nDigits = pDst - pSrc;
+        _nDigits = pSrc - pDst;
 
         return *this;
     }
