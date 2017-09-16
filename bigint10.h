@@ -317,8 +317,8 @@ public:
               13, 2 Phase 2   9, 6,8  10, 8,9
             1 ,3, 6 Phase 3           1,0,8,9
         */
-        int iHead = CAPACITY - _nDigits;
-        int iTail = CAPACITY - 1;
+        int iHead = (int)CAPACITY - (int)_nDigits;
+        int iTail = (int)CAPACITY - (int)1;
         char sum;
 
         // Phase 1 -- sum all reverse digits, we don't care about overflow (yet)
