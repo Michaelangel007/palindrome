@@ -79,11 +79,10 @@
 
         while( true )
         {
-           if( s.isPalindrome() )
-               break;
+            if( s.isPalindrome() )
+                break;
 
-            gnCycles++;
-            if (gnCycles > gnDepth)
+            if (++gnCycles > gnDepth)
             {
                 gnCycles = -1;
                 break;
