@@ -31,13 +31,6 @@ class BigInt10
     }
 
     // ========================================================================
-    inline void clone( const char *source )
-    {
-        alloc();
-        memcpy( _pDigits, source, CAPACITY );
-    }
-
-    // ========================================================================
     inline void init()
     {
         alloc();
@@ -93,7 +86,16 @@ public:
         *this = rhs;
 
         // Now deep copy digits
-        clone( rhs._pDigits );
+        alloc();
+        memcpy( _pDigits, rhs._pDigits, CAPACITY );
+    }
+
+    // Note: Use _existing_ buffer
+    // ========================================================================
+    inline void clone( const BigInt10& rhs )
+    {
+        _nDigits = rhs._nDigits;
+        memcpy( _pDigits, rhs._pDigits, CAPACITY );
     }
 
     // ========================================================================
