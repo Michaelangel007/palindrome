@@ -29,9 +29,7 @@
 
             r.reverse( s );
 
-            //printf( "@  %d\n", depth );
-            gnCycles++;
-            if (gnCycles > gnDepth) //if( (s.digits() < 1)
+            if (++gnCycles > gnDepth)
             {
                 gnCycles = -1;
                 return s;
