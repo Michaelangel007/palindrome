@@ -67,7 +67,7 @@
      * @return -1 if number is probably a Lychrel Number
      */
     // ========================================================================
-    BigInt10 findPalindrome2( BigInt10 x )
+    BigInt10 findPalindrome2( BigInt10& x )
     {
         BigInt10 s( x );
 
