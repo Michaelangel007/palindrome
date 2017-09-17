@@ -72,6 +72,7 @@ int main( const int nArg, const char *aArg[] )
     gnRecord          = (nArg > 3) ? atoi( aArg[3] ): gnRecord;
 
     printf( "sizeof( bigint10 ): %d\n", BigInt10::size() );
+    printf( "Find version: %d\n", FIND_VER );
 
     if( nArg < 2 )
     {
@@ -112,11 +113,7 @@ int main( const int nArg, const char *aArg[] )
 
     for( ; x <= y; x += ONE, delta++ )
     {
-#if FIND == 1 // VER1
-        r = findPalindrome( x );
-#else // VER2
-        r = findPalindrome2( x );
-#endif
+        r = FIND( x );
 
         if( gnCycles < 0 ) // Couldn't verify is a palindrome
             continue;
