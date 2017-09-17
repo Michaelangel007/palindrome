@@ -371,12 +371,14 @@ public:
         );
     }
 
+    // Equal
     // ========================================================================
     bool operator == (const BigInt10& rhs ) const
     {
         return compare( *this, rhs ) == CMP_EQ;
     }
 
+    // LessThanEqual
     // ========================================================================
     bool operator <= (const BigInt10& rhs ) const
     {
