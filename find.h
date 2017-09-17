@@ -1,3 +1,5 @@
+#define FIND_DEBUG 0
+
 // Globals
     int gbTrace  =   0;
     int gnCycles =   0; // Current depth
@@ -13,7 +15,7 @@
      * @return -1 if number is probably a Lychrel Number
      */
     // ========================================================================
-    BigInt10 findPalindrome( BigInt10 x )
+    BigInt10 findPalindrome1( BigInt10& x )
     {
         gnCycles = 0;
 
