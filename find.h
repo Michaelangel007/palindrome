@@ -71,6 +71,10 @@
     {
         BigInt10 s( x );
 
+#if FIND_DEBUG
+        printf( "@ %s\n", s.toString() );
+#endif
+
         gnCycles = 0;
 
         while( true )
