@@ -44,6 +44,11 @@ int main( const int nArg, const char *aArg[] )
         );
     }
 
+#if MEMO
+    hist_init( 4096    );
+    memo_init( gnDepth );
+#endif
+
     BigInt10   x( text1 );
     BigInt10   y( text2 );
     BigInt10   r; // reverse

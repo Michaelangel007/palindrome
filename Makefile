@@ -1,4 +1,4 @@
-all: pal findpal
+all: pal findpal memopal
 
 .phony: clean
 
@@ -14,5 +14,8 @@ pal: palindrome_bigint.cpp $(INC_H)
 	g++ $(C_FLAGS) $< -o $@
 
 findpal: find_palindrome.cpp $(INC_H)
-	g++ $(C_FLAGS) $< -o $@
+	g++ $(C_FLAGS) -DMEMO=0 $< -o $@
+
+memopal: find_palindrome.cpp $(INC_H)
+	g++ $(C_FLAGS) -DMEMO=1 $< -o $@
 
